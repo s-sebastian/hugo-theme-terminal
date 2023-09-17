@@ -1,5 +1,5 @@
-/* PrismJS 1.24.1
-https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+actionscript+apacheconf+applescript+bash+c+csharp+cpp+cmake+coffeescript+csp+css-extras+diff+django+docker+elixir+elm+erlang+fsharp+flow+git+go+graphql+haml+handlebars+haskell+http+java+json+kotlin+latex+less+llvm+makefile+markdown+markup-templating+nasm+objectivec+ocaml+perl+php+php-extras+powershell+processing+pug+python+r+jsx+tsx+reason+ruby+rust+sass+scss+scala+scheme+sql+stylus+swift+textile+toml+twig+typescript+vim+visual-basic+wasm+yaml&plugins=line-highlight+line-numbers+jsonp-highlight+highlight-keywords+command-line+toolbar+copy-to-clipboard */
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+apacheconf+armasm+asciidoc+aspnet+awk+bash+c+csharp+diff+django+dns-zone-file+docker+dot+etlua+git+linker-script+go+go-module+http+ini+java+latex+llvm+log+lua+makefile+markdown+markup-templating+nasm+nginx+objectivec+perl+php+promql+python+regex+ruby+rust+shell-session+sql+systemd+toml+vim+wasm+yaml&plugins=line-highlight+line-numbers+jsonp-highlight+highlight-keywords+command-line+toolbar+copy-to-clipboard */
 /**
  * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
  * Based on https://github.com/chriskempson/tomorrow-theme
@@ -243,6 +243,7 @@ pre[class*="language-"].line-numbers > code {
 	letter-spacing: -1px;
 	margin-right: 1em;
 	pointer-events: none;
+	text-align: right;
 
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -251,7 +252,7 @@ pre[class*="language-"].line-numbers > code {
 }
 
 .command-line-prompt > span:before {
-	color: #999;
+	opacity: 0.7;
 	content: ' ';
 	display: block;
 	padding-right: 0.8em;
@@ -269,12 +270,22 @@ pre[class*="language-"].line-numbers > code {
 	content: attr(data-prompt);
 }
 
+.command-line-prompt > span[data-continuation-prompt]:before {
+	content: attr(data-continuation-prompt);
+}
+
+.command-line span.token.output {
+	/* Make shell output lines a bit lighter to distinguish them from shell commands */
+	opacity: 0.7;
+}
+
 div.code-toolbar {
 	position: relative;
 }
 
 div.code-toolbar > .toolbar {
 	position: absolute;
+	z-index: 10;
 	top: .3em;
 	right: .2em;
 	transition: opacity 0.3s ease-in-out;
